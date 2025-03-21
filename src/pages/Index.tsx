@@ -10,7 +10,6 @@ import {
   PenTool, 
   Terminal, 
   Layers, 
-  ChevronRight, 
   Github, 
   Linkedin, 
   Mail, 
@@ -78,29 +77,28 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-dark text-white relative overflow-hidden">
-      {/* Grid Background */}
-      <div className="fixed inset-0 grid grid-cols-[repeat(20,1fr)] grid-rows-[repeat(20,1fr)] opacity-10 animate-grid-fade">
-        {Array.from({ length: 400 }).map((_, i) => (
-          <div key={i} className="border border-purple/10" />
-        ))}
-      </div>
-
       {/* Noise Overlay */}
       <div className="fixed inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMDAiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-50" />
 
       {/* Navbar */}
       <nav className="sticky top-0 z-50 px-6 py-4 flex items-center justify-between backdrop-blur-md bg-dark/80 border-b border-white/10">
-        <div className="flex items-center space-x-2">
-          <Compass className="w-8 h-8 text-purple" />
-          <span className="text-xl font-bold">DevPortfolio</span>
-        </div>
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="flex items-center space-x-6">
           <a href="#home" className="hover:text-purple transition-colors">Home</a>
           <a href="#about" className="hover:text-purple transition-colors">About</a>
           <a href="#projects" className="hover:text-purple transition-colors">Projects</a>
           <a href="#services" className="hover:text-purple transition-colors">Services</a>
-          <a href="#contact" className="hover:text-purple transition-colors">Contact</a>
         </div>
+        
+        <div className="font-serif text-3xl font-bold text-center">
+          <span className="text-purple">jJ.</span>
+        </div>
+        
+        <div className="hidden md:block">
+          <a href="#contact" className="px-5 py-2 bg-purple text-white rounded-md hover:bg-purple-dark transition-colors">
+            Contact me
+          </a>
+        </div>
+        
         <button 
           className="md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -109,9 +107,6 @@ const Index = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-        <a href="#contact" className="hidden md:block px-4 py-2 bg-purple text-white rounded-full hover:bg-purple-dark transition-colors">
-          Hire Me
-        </a>
       </nav>
 
       {/* Mobile Menu */}
@@ -141,23 +136,22 @@ const Index = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="w-full md:w-1/2 order-2 md:order-1">
               <p className="text-purple-light font-mono mb-3">Hello, my name is</p>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                <span className="text-gradient">John Doe</span>
+              <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6">
+                <span className="text-gradient">MA Jillani</span>
               </h1>
-              <h2 className="text-3xl md:text-4xl text-gray-300 font-bold mb-6">
-                I build exceptional digital experiences
+              <h2 className="text-3xl md:text-4xl text-gray-300 font-serif font-bold mb-6">
+                Creating websites that convert & grow your business
               </h2>
               <p className="text-xl text-gray-400 max-w-2xl mb-8">
-                I'm a web developer and designer specializing in building (and occasionally designing) 
-                exceptional digital experiences. Currently, I'm focused on creating accessible, 
-                human-centered products.
+                I'm a web developer and designer specializing in building exceptional digital 
+                experiences that enhance your business's online presence and drive conversion. 
+                My focus is on creating websites that not only look great but deliver real results.
               </p>
               <div className="flex space-x-4">
-                <a href="#projects" className="px-8 py-3 bg-purple text-white rounded-full font-semibold hover:bg-purple-dark transition-colors flex items-center">
+                <a href="#projects" className="px-8 py-3 bg-purple text-white rounded-md font-semibold hover:bg-purple/80 hover:translate-y-[-2px] transition-all">
                   View My Work
-                  <ChevronRight className="ml-2 w-5 h-5" />
                 </a>
-                <a href="#contact" className="px-8 py-3 border border-purple text-purple rounded-full font-semibold hover:bg-purple hover:text-white transition-colors">
+                <a href="#contact" className="px-8 py-3 border border-purple text-purple rounded-md font-semibold hover:bg-purple/10 hover:translate-y-[-2px] transition-all">
                   Contact Me
                 </a>
               </div>
@@ -170,7 +164,7 @@ const Index = () => {
                     <div className="w-full h-full rounded-full overflow-hidden">
                       <img 
                         src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                        alt="John Doe" 
+                        alt="MA Jillani" 
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -186,25 +180,25 @@ const Index = () => {
       <section id="about" className="relative z-10 px-6 py-20">
         <div className="max-w-7xl mx-auto">
           <div className="relative">
-            <div className="absolute -top-20 left-1/2 -translate-x-1/2 text-8xl md:text-9xl font-bold text-white/5 pointer-events-none">
+            <div className="absolute -top-20 left-1/2 -translate-x-1/2 text-8xl md:text-9xl font-bold text-white/5 pointer-events-none font-serif">
               ABOUT
             </div>
-            <h2 className="text-4xl font-bold text-center mb-16">About <span className="text-purple">Me</span></h2>
+            <h2 className="text-4xl font-serif font-bold text-center mb-16">About <span className="text-purple">Me</span></h2>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="glass-effect p-8 rounded-lg">
-              <h3 className="text-2xl font-bold mb-4">My Background</h3>
+              <h3 className="text-2xl font-serif font-bold mb-4">My Background</h3>
               <p className="text-gray-300 mb-4">
-                With over 5 years of experience in web development, I've worked on a wide range of projects from small business websites to large-scale enterprise applications. My passion lies in creating clean, efficient, and user-friendly interfaces that provide exceptional user experiences.
+                With over 5 years of experience in web development, I've worked on a wide range of projects from small business websites to large-scale enterprise applications. My passion lies in creating clean, efficient, and user-friendly interfaces that provide exceptional user experiences and drive business growth.
               </p>
               <p className="text-gray-300 mb-6">
-                I graduated with a degree in Computer Science and have since dedicated myself to mastering modern web technologies. I believe in continuous learning and staying up-to-date with the latest industry trends and best practices.
+                I graduated with a degree in Computer Science and have since dedicated myself to mastering modern web technologies. I believe in continuous learning and staying up-to-date with the latest industry trends and best practices to deliver solutions that truly make a difference.
               </p>
               
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <h4 className="text-purple-light font-bold mb-2">Frontend</h4>
+                  <h4 className="text-purple-light font-bold mb-2 font-serif">Frontend</h4>
                   <ul className="space-y-1 text-gray-300">
                     <li>React / Next.js</li>
                     <li>TypeScript</li>
@@ -213,7 +207,7 @@ const Index = () => {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-purple-light font-bold mb-2">Backend</h4>
+                  <h4 className="text-purple-light font-bold mb-2 font-serif">Backend</h4>
                   <ul className="space-y-1 text-gray-300">
                     <li>Node.js</li>
                     <li>Express</li>
@@ -226,24 +220,24 @@ const Index = () => {
             
             <div>
               <div className="glass-effect p-8 rounded-lg mb-8">
-                <h3 className="text-2xl font-bold mb-4">My Approach</h3>
+                <h3 className="text-2xl font-serif font-bold mb-4">My Approach</h3>
                 <p className="text-gray-300">
-                  I approach each project with a focus on user needs, business goals, and technical excellence. My development process emphasizes clean code, performance optimization, and accessibility. I believe in collaborative development and clear communication throughout the project lifecycle.
+                  I approach each project with a focus on your business goals, user needs, and conversion optimization. My development process emphasizes clean code, performance, and accessibility, ensuring your website not only looks great but also converts visitors into customers. I believe in collaborative development and clear communication throughout the project lifecycle.
                 </p>
               </div>
               
               <div className="glass-effect p-8 rounded-lg">
-                <h3 className="text-2xl font-bold mb-4">Education & Experience</h3>
+                <h3 className="text-2xl font-serif font-bold mb-4">Education & Experience</h3>
                 <div className="mb-4">
-                  <h4 className="text-purple-light font-semibold">Senior Frontend Developer | TechCorp</h4>
+                  <h4 className="text-purple-light font-semibold font-serif">Senior Frontend Developer | TechCorp</h4>
                   <p className="text-gray-400">2020 - Present</p>
                 </div>
                 <div className="mb-4">
-                  <h4 className="text-purple-light font-semibold">Web Developer | DigitalAgency</h4>
+                  <h4 className="text-purple-light font-semibold font-serif">Web Developer | DigitalAgency</h4>
                   <p className="text-gray-400">2018 - 2020</p>
                 </div>
                 <div>
-                  <h4 className="text-purple-light font-semibold">BSc Computer Science | Tech University</h4>
+                  <h4 className="text-purple-light font-semibold font-serif">BSc Computer Science | Tech University</h4>
                   <p className="text-gray-400">2014 - 2018</p>
                 </div>
               </div>
@@ -256,10 +250,10 @@ const Index = () => {
       <section id="projects" className="relative z-10 px-6 py-20">
         <div className="max-w-7xl mx-auto">
           <div className="relative">
-            <div className="absolute -top-20 left-1/2 -translate-x-1/2 text-8xl md:text-9xl font-bold text-white/5 pointer-events-none">
+            <div className="absolute -top-20 left-1/2 -translate-x-1/2 text-8xl md:text-9xl font-bold text-white/5 pointer-events-none font-serif">
               WORK
             </div>
-            <h2 className="text-4xl font-bold text-center mb-16">My <span className="text-purple">Projects</span></h2>
+            <h2 className="text-4xl font-serif font-bold text-center mb-16">My <span className="text-purple">Projects</span></h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -267,7 +261,7 @@ const Index = () => {
               <a 
                 href={project.link} 
                 key={index} 
-                className="glass-effect rounded-lg overflow-hidden group hover:border-purple/50 transition-all hover:scale-105"
+                className="glass-effect rounded-lg overflow-hidden group hover:border-purple/50 transition-all hover:translate-y-[-5px]"
               >
                 <div className="h-48 overflow-hidden">
                   <img 
@@ -277,11 +271,11 @@ const Index = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-purple transition-colors">{project.title}</h3>
+                  <h3 className="text-xl font-serif font-bold mb-2 group-hover:text-purple transition-colors">{project.title}</h3>
                   <p className="text-gray-400 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, tagIndex) => (
-                      <span key={tagIndex} className="text-xs px-2 py-1 bg-purple/10 text-purple-light rounded-full">
+                      <span key={tagIndex} className="text-xs px-2 py-1 bg-purple/10 text-purple-light rounded-md">
                         {tag}
                       </span>
                     ))}
@@ -296,7 +290,7 @@ const Index = () => {
               href="https://github.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="inline-flex items-center px-6 py-3 border border-purple text-purple rounded-full hover:bg-purple hover:text-white transition-colors"
+              className="inline-flex items-center px-6 py-3 border border-purple text-purple rounded-md hover:bg-purple/10 hover:translate-y-[-2px] transition-all"
             >
               <Github className="mr-2 h-5 w-5" />
               See More on GitHub
@@ -309,20 +303,20 @@ const Index = () => {
       <section id="services" className="relative z-10 px-6 py-20">
         <div className="max-w-7xl mx-auto">
           <div className="relative">
-            <div className="absolute -top-20 left-1/2 -translate-x-1/2 text-8xl md:text-9xl font-bold text-white/5 pointer-events-none">
+            <div className="absolute -top-20 left-1/2 -translate-x-1/2 text-8xl md:text-9xl font-bold text-white/5 pointer-events-none font-serif">
               SERVICES
             </div>
-            <h2 className="text-4xl font-bold text-center mb-16">My <span className="text-purple">Services</span></h2>
+            <h2 className="text-4xl font-serif font-bold text-center mb-16">My <span className="text-purple">Services</span></h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="p-6 rounded-lg glass-effect hover:border-purple/50 transition-all hover:scale-105"
+                className="p-6 rounded-lg glass-effect hover:border-purple/50 transition-all hover:translate-y-[-5px]"
               >
                 <div className="mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                <h3 className="text-xl font-serif font-semibold mb-2">{service.title}</h3>
                 <p className="text-gray-400">{service.description}</p>
               </div>
             ))}
@@ -334,22 +328,22 @@ const Index = () => {
       <section id="contact" className="relative z-10 px-6 py-20">
         <div className="max-w-7xl mx-auto">
           <div className="relative">
-            <div className="absolute -top-20 left-1/2 -translate-x-1/2 text-8xl md:text-9xl font-bold text-white/5 pointer-events-none">
+            <div className="absolute -top-20 left-1/2 -translate-x-1/2 text-8xl md:text-9xl font-bold text-white/5 pointer-events-none font-serif">
               CONTACT
             </div>
-            <h2 className="text-4xl font-bold text-center mb-16">Get In <span className="text-purple">Touch</span></h2>
+            <h2 className="text-4xl font-serif font-bold text-center mb-16">Get In <span className="text-purple">Touch</span></h2>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             <div className="lg:col-span-2 glass-effect p-8 rounded-lg">
-              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-serif font-bold mb-6">Contact Information</h3>
               <div className="space-y-6">
                 <div className="flex items-center">
                   <Mail className="w-6 h-6 text-purple mr-4" />
                   <div>
                     <p className="text-gray-400">Email</p>
-                    <a href="mailto:hello@johndoe.com" className="text-purple-light hover:text-purple transition-colors">
-                      hello@johndoe.com
+                    <a href="mailto:hello@majillani.com" className="text-purple-light hover:text-purple transition-colors">
+                      hello@majillani.com
                     </a>
                   </div>
                 </div>
@@ -358,8 +352,8 @@ const Index = () => {
                   <Linkedin className="w-6 h-6 text-purple mr-4" />
                   <div>
                     <p className="text-gray-400">LinkedIn</p>
-                    <a href="https://linkedin.com/in/johndoe" target="_blank" rel="noopener noreferrer" className="text-purple-light hover:text-purple transition-colors">
-                      linkedin.com/in/johndoe
+                    <a href="https://linkedin.com/in/majillani" target="_blank" rel="noopener noreferrer" className="text-purple-light hover:text-purple transition-colors">
+                      linkedin.com/in/majillani
                     </a>
                   </div>
                 </div>
@@ -368,8 +362,8 @@ const Index = () => {
                   <Github className="w-6 h-6 text-purple mr-4" />
                   <div>
                     <p className="text-gray-400">GitHub</p>
-                    <a href="https://github.com/johndoe" target="_blank" rel="noopener noreferrer" className="text-purple-light hover:text-purple transition-colors">
-                      github.com/johndoe
+                    <a href="https://github.com/majillani" target="_blank" rel="noopener noreferrer" className="text-purple-light hover:text-purple transition-colors">
+                      github.com/majillani
                     </a>
                   </div>
                 </div>
@@ -377,7 +371,7 @@ const Index = () => {
             </div>
             
             <div className="lg:col-span-3 glass-effect p-8 rounded-lg">
-              <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
+              <h3 className="text-2xl font-serif font-bold mb-6">Send Me a Message</h3>
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -386,7 +380,7 @@ const Index = () => {
                       type="text"
                       id="name"
                       placeholder="Your name"
-                      className="w-full p-3 bg-dark border border-white/10 rounded-lg focus:outline-none focus:border-purple"
+                      className="w-full p-3 bg-dark border border-white/10 rounded-md focus:outline-none focus:border-purple"
                     />
                   </div>
                   <div>
@@ -395,7 +389,7 @@ const Index = () => {
                       type="email"
                       id="email"
                       placeholder="your@email.com"
-                      className="w-full p-3 bg-dark border border-white/10 rounded-lg focus:outline-none focus:border-purple"
+                      className="w-full p-3 bg-dark border border-white/10 rounded-md focus:outline-none focus:border-purple"
                     />
                   </div>
                 </div>
@@ -405,7 +399,7 @@ const Index = () => {
                     type="text"
                     id="subject"
                     placeholder="Project inquiry"
-                    className="w-full p-3 bg-dark border border-white/10 rounded-lg focus:outline-none focus:border-purple"
+                    className="w-full p-3 bg-dark border border-white/10 rounded-md focus:outline-none focus:border-purple"
                   />
                 </div>
                 <div>
@@ -414,12 +408,12 @@ const Index = () => {
                     id="message"
                     rows={5}
                     placeholder="Your message"
-                    className="w-full p-3 bg-dark border border-white/10 rounded-lg focus:outline-none focus:border-purple"
+                    className="w-full p-3 bg-dark border border-white/10 rounded-md focus:outline-none focus:border-purple"
                   ></textarea>
                 </div>
                 <button 
                   type="submit" 
-                  className="px-8 py-3 bg-purple text-white rounded-full font-semibold hover:bg-purple-dark transition-colors flex items-center"
+                  className="px-8 py-3 bg-purple text-white rounded-md font-semibold hover:bg-purple/80 hover:translate-y-[-2px] transition-all flex items-center"
                 >
                   Send Message
                   <Send className="ml-2 w-5 h-5" />
@@ -435,28 +429,27 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Compass className="w-6 h-6 text-purple" />
-                <span className="text-xl font-bold">DevPortfolio</span>
+              <div className="font-serif text-2xl font-bold mb-4">
+                <span className="text-purple">jJ.</span>
               </div>
               <p className="text-gray-400 mb-4">
-                Building exceptional digital experiences with modern web technologies.
+                Creating exceptional websites that convert visitors into customers and grow your business.
               </p>
               <div className="flex space-x-4">
-                <a href="https://github.com/johndoe" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple transition-colors">
+                <a href="https://github.com/majillani" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple transition-colors">
                   <Github className="w-5 h-5" />
                 </a>
-                <a href="https://linkedin.com/in/johndoe" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple transition-colors">
+                <a href="https://linkedin.com/in/majillani" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="mailto:hello@johndoe.com" className="text-gray-400 hover:text-purple transition-colors">
+                <a href="mailto:hello@majillani.com" className="text-gray-400 hover:text-purple transition-colors">
                   <Mail className="w-5 h-5" />
                 </a>
               </div>
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <h3 className="text-lg font-serif font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li><a href="#home" className="text-gray-400 hover:text-purple transition-colors">Home</a></li>
                 <li><a href="#about" className="text-gray-400 hover:text-purple transition-colors">About</a></li>
@@ -467,7 +460,7 @@ const Index = () => {
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-4">Legal</h3>
+              <h3 className="text-lg font-serif font-semibold mb-4">Legal</h3>
               <ul className="space-y-2">
                 <li><a href="#" className="text-gray-400 hover:text-purple transition-colors">Privacy Policy</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-purple transition-colors">Terms of Service</a></li>
@@ -476,7 +469,7 @@ const Index = () => {
           </div>
           
           <div className="mt-12 pt-8 border-t border-white/10 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} John Doe. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} MA Jillani. All rights reserved.</p>
           </div>
         </div>
       </footer>

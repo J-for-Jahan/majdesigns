@@ -6,6 +6,10 @@ export default {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+      },
       colors: {
         neon: "#8B5CF6", // Changed from green to purple
         dark: "#0F0F1A", // Slightly blueish dark
