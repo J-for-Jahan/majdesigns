@@ -1,4 +1,6 @@
 
+import { TextRotate } from "./ui/text-rotate";
+
 const Hero = () => {
   return (
     <section id="home" className="relative z-10 px-6 py-20 md:py-32 min-h-screen flex items-center">
@@ -10,7 +12,11 @@ const Hero = () => {
               <span className="text-gradient">MA Jillani</span>
             </h1>
             <h2 className="text-3xl md:text-4xl text-gray-300 font-serif font-bold mb-6">
-              Creating websites that convert & grow your business
+              Creating websites that <TextRotate 
+                texts={["convert", "impress", "perform", "engage", "deliver"]} 
+                rotationInterval={3000}
+                mainClassName="text-purple"
+              /> & grow your business
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mb-8">
               I'm a web developer and designer specializing in building exceptional digital 
