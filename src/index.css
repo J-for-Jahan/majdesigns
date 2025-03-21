@@ -8,7 +8,7 @@
 }
 
 body {
-  background: #000000;
+  background: #0F0F1A;
   color: #ffffff;
 }
 
@@ -23,16 +23,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #0F0F1A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00FF00;
+  background: #8B5CF6;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00CC00;
+  background: #6E59A5;
 }
 
 /* Animation classes */
@@ -47,4 +47,14 @@ html {
   50% {
     transform: translateY(-20px);
   }
+}
+
+/* Glass effect */
+.glass-effect {
+  @apply backdrop-blur-md bg-white/5 border border-white/10;
+}
+
+/* Text gradient */
+.text-gradient {
+  @apply bg-gradient-to-r from-purple-light via-purple to-blue-light bg-clip-text text-transparent;
 }

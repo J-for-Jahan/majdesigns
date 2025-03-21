@@ -7,13 +7,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        neon: "#00FF00",
-        dark: "#000000",
+        neon: "#8B5CF6", // Changed from green to purple
+        dark: "#0F0F1A", // Slightly blueish dark
+        purple: {
+          light: "#D6BCFA",
+          DEFAULT: "#8B5CF6",
+          dark: "#6E59A5",
+        },
+        blue: {
+          light: "#93C5FD",
+          DEFAULT: "#3B82F6",
+          dark: "#1E40AF",
+        },
       },
       animation: {
         "gradient-x": "gradient-x 15s ease infinite",
         "float": "float 3s ease-in-out infinite",
         "grid-fade": "grid-fade 2s ease-in-out infinite",
+        "pulse-slow": "pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       keyframes: {
         "gradient-x": {
