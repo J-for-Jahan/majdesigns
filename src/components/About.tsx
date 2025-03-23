@@ -86,8 +86,18 @@ const About = () => {
               <h3 className="text-2xl font-serif font-bold mb-6">My Approach</h3>
               <p className="text-gray-300 mb-6">
                 I follow a proven process that ensures your project is delivered on time, on budget, and exceeds expectations.
-                Swipe through the timeline below to see how we'll work together:
+                Hover and scroll horizontally to explore each step:
               </p>
+              
+              <style jsx global>{`
+                .hide-scrollbar::-webkit-scrollbar {
+                  display: none;
+                }
+                .hide-scrollbar {
+                  -ms-overflow-style: none;
+                  scrollbar-width: none;
+                }
+              `}</style>
               
               <HorizontalTimeline steps={workflowSteps} className="mt-10" />
             </div>

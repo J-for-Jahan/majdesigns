@@ -1,15 +1,16 @@
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useAnimation, AnimatePresence } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { 
-  Code, PenTool, Figma, Terminal, 
-  FileCode, Palette, LayoutDashboard, 
-  MousePointer, Layers, Component 
-} from "lucide-react";
+  SiReact, SiNextdotjs, SiTailwindcss, 
+  SiTypescript, SiFigma, SiAdobephotoshop, 
+  SiVercel, SiGithub, SiMiro, SiFramer 
+} from "react-icons/si";
 
 interface FloatingIconProps {
   icon: React.ReactNode;
+  color: string;
   index: number;
   totalIcons: number;
   radius: number;
@@ -20,6 +21,7 @@ interface FloatingIconProps {
 
 const FloatingIcon = ({ 
   icon, 
+  color,
   index,
   totalIcons,
   radius,
@@ -36,14 +38,12 @@ const FloatingIcon = ({
   const iconControls = useAnimation();
 
   useEffect(() => {
-    if (isRotating) {
-      iconControls.start({
-        x: `${x}%`,
-        y: `${y}%`,
-        transition: { duration: 0.5, ease: "easeInOut" }
-      });
-    }
-  }, [iconControls, isRotating, x, y]);
+    iconControls.start({
+      x: `${x}%`,
+      y: `${y}%`,
+      transition: { duration: 0.5, ease: "easeInOut" }
+    });
+  }, [iconControls, x, y, isRotating]);
 
   return (
     <motion.div
@@ -51,18 +51,17 @@ const FloatingIcon = ({
         "absolute rounded-full p-3",
         "shadow-lg cursor-pointer transition-all duration-300",
         isHovered 
-          ? "bg-purple border border-purple-light scale-125 z-20" 
+          ? "bg-white scale-150 z-20" 
           : "bg-white/5 backdrop-blur-sm border border-white/10"
       )}
       style={{ 
         width: 50, 
         height: 50,
-        left: `${x}%`, 
-        top: `${y}%`,
-        transform: `translate(-50%, -50%)`,
+        left: `calc(${x}% - 25px)`, 
+        top: `calc(${y}% - 25px)`,
       }}
       animate={iconControls}
-      initial={{ x: `${x}%`, y: `${y}%`, opacity: 0 }}
+      initial={{ x: `calc(${x}% - 25px)`, y: `calc(${y}% - 25px)`, opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ 
         duration: 0.5,
@@ -72,10 +71,13 @@ const FloatingIcon = ({
       onMouseLeave={() => setHoveredIndex(null)}
     >
       <div className="flex items-center justify-center h-full">
-        <div className={cn(
-          "transition-colors duration-300",
-          isHovered ? "text-white" : "text-purple-light"
-        )}>
+        <div 
+          className={cn(
+            "transition-colors duration-300 text-xl",
+            isHovered ? `text-[${color}]` : "text-gray-400"
+          )}
+          style={{ color: isHovered ? color : undefined }}
+        >
           {icon}
         </div>
       </div>
@@ -90,32 +92,53 @@ const FloatingIcons = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const icons = [
-    { icon: <Code size={24} /> },
-    { icon: <PenTool size={24} /> },
-    { icon: <Figma size={24} /> },
-    { icon: <Terminal size={24} /> },
-    { icon: <FileCode size={24} /> },
-    { icon: <Palette size={24} /> },
-    { icon: <LayoutDashboard size={24} /> },
-    { icon: <MousePointer size={24} /> },
-    { icon: <Layers size={24} /> },
-    { icon: <Component size={24} /> },
+    { icon: <SiReact size={24} />, color: "#61DAFB" },
+    { icon: <SiNextdotjs size={24} />, color: "#000000" },
+    { icon: <SiTailwindcss size={24} />, color: "#06B6D4" },
+    { icon: <SiTypescript size={24} />, color: "#3178C6" },
+    { icon: <SiFigma size={24} />, color: "#F24E1E" },
+    { icon: <SiAdobephotoshop size={24} />, color: "#31A8FF" },
+    { icon: <SiVercel size={24} />, color: "#000000" },
+    { icon: <SiGithub size={24} />, color: "#181717" },
+    { icon: <SiMiro size={24} />, color: "#050038" },
+    { icon: <SiFramer size={24} />, color: "#0055FF" },
   ];
 
   useEffect(() => {
     let animationId: number;
     const rotationSpeed = 0.05; // degrees per frame
+    const iconElements = document.querySelectorAll(".floating-icon");
+    const centerX = 50;
+    const centerY = 50;
+    const radius = 35; // percentage of container
 
     const animate = () => {
-      if (isRotating && containerRef.current) {
-        setRotation(prev => (prev + rotationSpeed) % 360);
+      if (isRotating) {
+        setRotation(prev => {
+          const newRotation = (prev + rotationSpeed) % 360;
+          
+          // Update each icon position
+          iconElements.forEach((element, index) => {
+            if (hoveredIndex !== null) return; // Don't update if an icon is hovered
+            
+            const angle = ((index / icons.length) * 2 * Math.PI) + (newRotation * (Math.PI / 180));
+            const x = centerX + radius * Math.cos(angle);
+            const y = centerY + radius * Math.sin(angle);
+            
+            const el = element as HTMLElement;
+            el.style.left = `calc(${x}% - 25px)`;
+            el.style.top = `calc(${y}% - 25px)`;
+          });
+          
+          return newRotation;
+        });
       }
       animationId = requestAnimationFrame(animate);
     };
 
     animationId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationId);
-  }, [isRotating]);
+  }, [isRotating, icons.length, hoveredIndex]);
 
   useEffect(() => {
     setIsRotating(hoveredIndex === null);
@@ -133,12 +156,14 @@ const FloatingIcons = () => {
         <FloatingIcon
           key={index}
           icon={icon.icon}
+          color={icon.color}
           index={index}
           totalIcons={icons.length}
           radius={radius}
           isRotating={isRotating}
           hoveredIndex={hoveredIndex}
           setHoveredIndex={setHoveredIndex}
+          className="floating-icon"
         />
       ))}
     </div>
