@@ -15,9 +15,10 @@ const Hero = () => {
       const x = e.clientX;
       const y = e.clientY;
       
+      // Create interactive gradient effect that follows cursor
       gradientElement.style.background = `radial-gradient(circle at ${x}px ${y}px, 
-        rgba(139, 92, 246, 0.15) 0%, 
-        rgba(147, 197, 253, 0.1) 35%, 
+        rgba(139, 92, 246, 0.25) 0%, 
+        rgba(147, 197, 253, 0.15) 35%, 
         rgba(15, 15, 26, 0) 70%)`;
     };
 
@@ -48,19 +49,21 @@ const Hero = () => {
             </h1>
             <h2 className="text-3xl md:text-4xl text-gray-300 font-serif font-bold mb-6">
               Creating websites that{" "}
-              <TextRotate 
-                texts={["convert", "impress", "perform", "engage", "deliver"]} 
-                rotationInterval={3000}
-                mainClassName="text-purple inline-block relative overflow-hidden"
-                transition={{ 
-                  type: "spring",
-                  damping: 25,
-                  stiffness: 300
-                }}
-                initial={{ y: "100%", opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: "-100%", opacity: 0 }}
-              />
+              <span className="relative inline-block">
+                <TextRotate 
+                  texts={["convert", "impress", "perform", "engage", "deliver"]} 
+                  rotationInterval={3000}
+                  mainClassName="inline-block relative overflow-hidden bg-purple/20 px-3 py-1 rounded"
+                  transition={{ 
+                    type: "spring",
+                    damping: 25,
+                    stiffness: 300
+                  }}
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: "-100%", opacity: 0 }}
+                />
+              </span>
               {" "}& grow your business
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
