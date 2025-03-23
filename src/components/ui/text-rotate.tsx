@@ -10,6 +10,7 @@ import {
   useState,
 } from "react"
 import { cn } from "@/lib/utils"
+import { motion, AnimatePresence } from "framer-motion"
 
 interface TextRotateProps {
   texts: string[]
@@ -22,8 +23,8 @@ interface TextRotateProps {
   staggerDuration?: number
   staggerFrom?: "first" | "last" | "center" | number | "random"
   transition?: any
-  loop?: boolean // Whether to start from the first text when the last one is reached
-  auto?: boolean // Whether to start the animation automatically
+  loop?: boolean
+  auto?: boolean
   splitBy?: "words" | "characters" | "lines" | string
   onNext?: (index: number) => void
   mainClassName?: string
@@ -69,14 +70,10 @@ const TextRotate = forwardRef<TextRotateRef, TextRotateProps>(
   ) => {
     const [currentTextIndex, setCurrentTextIndex] = useState(0)
 
-    // handy function to split text into characters with support for unicode and emojis
+    // Function to split text into characters that works in all browsers
     const splitIntoCharacters = (text: string): string[] => {
-      if (typeof Intl !== "undefined" && "Segmenter" in Intl) {
-        const segmenter = new Intl.Segmenter("en", { granularity: "grapheme" })
-        return Array.from(segmenter.segment(text), ({ segment }) => segment)
-      }
-      // Fallback for browsers that don't support Intl.Segmenter
-      return Array.from(text)
+      // Fallback for all browsers
+      return Array.from(text);
     }
 
     const elements = useMemo(() => {
@@ -113,7 +110,6 @@ const TextRotate = forwardRef<TextRotateRef, TextRotateProps>(
       [staggerFrom, staggerDuration]
     )
 
-    // Helper function to handle index changes and trigger callback
     const handleIndexChange = useCallback((newIndex: number) => {
       setCurrentTextIndex(newIndex)
       onNext?.(newIndex)
@@ -160,22 +156,30 @@ const TextRotate = forwardRef<TextRotateRef, TextRotateProps>(
       reset,
     }), [next, previous, jumpTo, reset])
 
-
     useEffect(() => {
       if (!auto) return
       const intervalId = setInterval(next, rotationInterval)
       return () => clearInterval(intervalId)
     }, [next, rotationInterval, auto])
 
-    // For our simplified version, we'll just display the current text without animations
     return (
-      <span className={cn("inline-block", mainClassName)}>
+      <span className={cn("inline-block overflow-hidden", mainClassName)}>
         <span className="sr-only">{texts[currentTextIndex]}</span>
-        <span className="relative inline-block" aria-hidden="true">
-          <span className={cn("inline-block", elementLevelClassName)}>
-            {texts[currentTextIndex]}
-          </span>
-        </span>
+        <AnimatePresence mode={animatePresenceMode} initial={animatePresenceInitial}>
+          <motion.span 
+            key={currentTextIndex}
+            className="relative inline-block" 
+            aria-hidden="true"
+            initial={initial}
+            animate={animate}
+            exit={exit}
+            transition={transition}
+          >
+            <span className={cn("inline-block", elementLevelClassName)}>
+              {texts[currentTextIndex]}
+            </span>
+          </motion.span>
+        </AnimatePresence>
       </span>
     )
   }
