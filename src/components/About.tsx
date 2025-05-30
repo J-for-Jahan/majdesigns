@@ -1,7 +1,6 @@
 
 import { 
-  Code, Figma, LayoutDashboard, Lightbulb, MessagesSquare, 
-  Palette, PencilRuler, Rocket, Users, Zap 
+  Code, Figma, Lightbulb, Palette, PencilRuler, Rocket, Users, Zap 
 } from "lucide-react";
 import ScrollRevealText from "./ui/scroll-reveal-text";
 import FloatingIcons from "./ui/floating-icons";
@@ -63,13 +62,8 @@ const About = () => {
           <h2 className="text-4xl font-serif font-bold text-center mb-16">About <span className="text-purple">Me</span></h2>
         </div>
         
-<<<<<<< HEAD
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left column with scroll reveal text */}
-=======
-        <div className="flex flex-col gap-12">
-          {/* Background section */}
->>>>>>> 40f74b4 (Updated after trae)
           <div className="glass-effect p-8 rounded-lg">
             <h3 className="text-2xl font-serif font-bold mb-6">My Background</h3>
             
@@ -85,7 +79,6 @@ const About = () => {
             </div>
           </div>
           
-<<<<<<< HEAD
           {/* Right column with horizontal timeline */}
           <div>
             <div className="glass-effect p-8 rounded-lg mb-8">
@@ -95,7 +88,7 @@ const About = () => {
                 Hover and scroll horizontally to explore each step:
               </p>
               
-              <style jsx global>{`
+              <style>{`
                 .hide-scrollbar::-webkit-scrollbar {
                   display: none;
                 }
@@ -107,27 +100,6 @@ const About = () => {
               
               <HorizontalTimeline steps={workflowSteps} className="mt-10" />
             </div>
-=======
-          {/* Approach section */}
-          <div className="glass-effect p-8 rounded-lg">
-            <h3 className="text-2xl font-serif font-bold mb-6">My Approach</h3>
-            <p className="text-gray-300 mb-6">
-              I follow a proven process that ensures your project is delivered on time, on budget, and exceeds expectations.
-              Hover and scroll horizontally to explore each step:
-            </p>
-            
-            <style>{`
-              .hide-scrollbar::-webkit-scrollbar {
-                display: none;
-              }
-              .hide-scrollbar {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-              }
-            `}</style>
-            
-            <HorizontalTimeline steps={workflowSteps} className="mt-10" />
->>>>>>> 40f74b4 (Updated after trae)
           </div>
         </div>
       </div>

@@ -1,24 +1,31 @@
 
-import Header from "../components/Header";
+import Background from "../components/Background";
+import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import About from "../components/About";
-import Projects from "../components/Projects";
-import Services from "../components/Services";
+import HowItWorks from "../components/HowItWorks";
+import Services from "../components/Services"; 
+import ProjectsShowcase from "../components/ProjectsShowcase";
+import WhyChooseMe from "../components/WhyChooseMe";
+import Testimonials from "../components/Testimonials";
+import AboutMe from "../components/AboutMe";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
-import Background from "../components/Background";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-dark text-white relative overflow-hidden">
+    <div className="min-h-screen bg-darkblue text-white relative overflow-hidden">
       {/* Noise Overlay */}
+      <div className="fixed inset-0 noise-texture opacity-5 pointer-events-none z-0"></div>
       <Background />
 
-      <Header />
+      <Navbar />
       <Hero />
-      <About />
-      <Projects />
+      <HowItWorks />
       <Services />
+      <ProjectsShowcase />
+      <WhyChooseMe />
+      <Testimonials />
+      <AboutMe />
       <Contact />
       <Footer />
     </div>

@@ -9,19 +9,16 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         serif: ['Playfair Display', 'serif'],
+        display: ['Manrope', 'sans-serif'],
       },
       colors: {
-        neon: "#8B5CF6", // Changed from green to purple
-        dark: "#0F0F1A", // Slightly blueish dark
-        purple: {
-          light: "#D6BCFA",
-          DEFAULT: "#8B5CF6",
-          dark: "#6E59A5",
-        },
+        neon: "#0070F3", // Changed to blue
+        dark: "#030712", // Deeper dark
+        darkblue: "#050E1D", // Dark blue background
         blue: {
           light: "#93C5FD",
-          DEFAULT: "#3B82F6",
-          dark: "#1E40AF",
+          DEFAULT: "#0070F3", // Primary blue
+          dark: "#0050B3",
         },
       },
       animation: {
@@ -29,6 +26,7 @@ export default {
         "float": "float 3s ease-in-out infinite",
         "grid-fade": "grid-fade 2s ease-in-out infinite",
         "pulse-slow": "pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "shimmer": "shimmer 2s linear infinite",
       },
       keyframes: {
         "gradient-x": {
@@ -49,6 +47,14 @@ export default {
           "0%, 100%": { opacity: "0.5" },
           "50%": { opacity: "0.8" },
         },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        }
+      },
+      backgroundImage: {
+        'blue-gradient': 'linear-gradient(to right, #0070F3, #00A3FF)',
+        'dark-radial': 'radial-gradient(circle at center, #050E1D, #030712)',
       },
     },
   },
