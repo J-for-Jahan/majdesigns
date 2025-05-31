@@ -4,8 +4,8 @@ import { ArrowRight, Code, Layout } from "lucide-react";
 import { useIsMobile } from "../hooks/use-mobile";
 
 // Import the images from the assets folder
-import Site01 from "../assets/Site 01.jpg";
-import Site02 from "../assets/Site 02.jpg";
+import Site01 from "../assets/projects/stardust-real-estate.jpg";
+import Site02 from "../assets/projects/atlas-luxury-mansions.jpg";
 
 // Custom hook for mouse movement with reduced motion
 const useMouseMovement = (isMobile: boolean) => {
