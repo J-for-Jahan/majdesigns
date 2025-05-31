@@ -1,5 +1,5 @@
-
 import { motion } from "framer-motion";
+import profileImage from "../assets/projects/profile image.jpg";
 
 const AboutMe = () => {
   return (
@@ -57,7 +57,7 @@ const AboutMe = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-blue/10 border border-white/10">
               <div className="w-full h-auto aspect-[4/5]">
                 <img 
-                  src="/src/assets/projects/profile image.jpg" 
+                  src={profileImage} 
                   alt="Designer at work" 
                   className="w-full h-full object-cover"
                 />
@@ -118,16 +118,16 @@ const AboutMe = () => {
           >
             <h3 className="text-2xl font-bold mb-6">Your <span className="text-blue">Creative Partner</span></h3>
             <p className="text-gray-300 mb-6">
-            Hey, I’m Jillani — a freelance web designer who actually gets what small businesses need. I don’t just make websites that look pretty — I build online experiences that turn visitors into paying customers.
+            Hey, I'm Jillani — a freelance web designer who actually gets what small businesses need. I don't just make websites that look pretty — I build online experiences that turn visitors into paying customers.
             </p>
             <p className="text-gray-300 mb-6">
-            I work closely with local business owners, entrepreneurs, and service providers who are done wasting time on generic templates and overpriced agencies. Whether it’s a real estate brand that needs trust at first glance, or a coach who wants a site that feels like them, I bring strategy, design, and clarity into one smooth package.
+            I work closely with local business owners, entrepreneurs, and service providers who are done wasting time on generic templates and overpriced agencies. Whether it's a real estate brand that needs trust at first glance, or a coach who wants a site that feels like them, I bring strategy, design, and clarity into one smooth package.
             </p>
             <p className="text-gray-300 mb-8">
-            I believe in speed, honesty, and design that converts. You won’t deal with fluff or big talk — just clean, high-impact websites that do the job right. This is personal for me: I want you to win, because that’s how I grow too.
+            I believe in speed, honesty, and design that converts. You won't deal with fluff or big talk — just clean, high-impact websites that do the job right. This is personal for me: I want you to win, because that's how I grow too.
             </p>
             <p className="text-gray-300 mb-8">
-            Let’s build something that actually moves your business forward.
+            Let's build something that actually moves your business forward.
             </p>
             
             

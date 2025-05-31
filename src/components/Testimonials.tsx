@@ -1,13 +1,16 @@
-
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import ryanMathewsImg from "../assets/projects/Ryan Mathews.jpg";
+import janeCooperImg from "../assets/projects/Jane Cooper.jpg";
+import aminaRauffImg from "../assets/projects/Amina Rauff.jpg";
+import danielCarterImg from "../assets/projects/Daniel Carter.jpg";
 
 const testimonials = [
   {
     name: "Ryan Matthews",
     role: "Real Estate Broker, San Jose",
-    image: "/src/assets/projects/Ryan Mathews.jpg",
+    image: ryanMathewsImg,
     quote: "This site gave my business a serious upgrade. It looks professional and clean, and clients tell me they trust it more than my old one.",
     rating: 5,
     project: "Real Estate Website (Stardust)"
@@ -15,15 +18,15 @@ const testimonials = [
   {
     name: "Jane Cooper",
     role: "Independent Realtor",
-    image: "/src/assets/projects/Jane Cooper.jpg",
-    quote: "The website feels like me. It’s simple, personal, and my clients love how easy it is to browse listings.",
+    image: janeCooperImg,
+    quote: "The website feels like me. It's simple, personal, and my clients love how easy it is to browse listings.",
     rating: 5,
     project: "Personal Realtor Portfolio"
   },
   {
     name: "Amina Rauf",
     role: "Women's Business Coach",
-    image: "/src/assets/projects/Amina Rauff.jpg",
+    image: aminaRauffImg,
     quote: "Super impressed with how Jillani captured my brand vibe. The site feels warm and polished — exactly what I needed.",
     rating: 5,
     project: "Women-Centered Coaching Business"
@@ -31,7 +34,7 @@ const testimonials = [
   {
     name: "Daniel Carter",
     role: "Life Coach & Author",
-    image: "/src/assets/projects/Daniel Carter.jpg",
+    image: danielCarterImg,
     quote: "Clean, professional, and straight to the point. Clients are booking faster now — the site does half the work for me.",
     rating: 5,
     project: "LifePath Coaching Platform"
