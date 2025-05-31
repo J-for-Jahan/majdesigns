@@ -57,7 +57,7 @@ const AboutMe = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-blue/10 border border-white/10">
               <div className="w-full h-auto aspect-[4/5]">
                 <img 
-                  src="/src/assets/profile image.jpg" 
+                  src="/src/assets/projects/profile image.jpg" 
                   alt="Designer at work" 
                   className="w-full h-full object-cover"
                 />

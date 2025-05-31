@@ -7,7 +7,7 @@ const testimonials = [
   {
     name: "Ryan Matthews",
     role: "Real Estate Broker, San Jose",
-    image: "/src/assets/Ryan Mathews.jpg",
+    image: "/src/assets/projects/Ryan Mathews.jpg",
     quote: "This site gave my business a serious upgrade. It looks professional and clean, and clients tell me they trust it more than my old one.",
     rating: 5,
     project: "Real Estate Website (Stardust)"
@@ -15,7 +15,7 @@ const testimonials = [
   {
     name: "Jane Cooper",
     role: "Independent Realtor",
-    image: "/src/assets/Jane Cooper.jpg",
+    image: "/src/assets/projects/Jane Cooper.jpg",
     quote: "The website feels like me. It’s simple, personal, and my clients love how easy it is to browse listings.",
     rating: 5,
     project: "Personal Realtor Portfolio"
@@ -23,7 +23,7 @@ const testimonials = [
   {
     name: "Amina Rauf",
     role: "Women's Business Coach",
-    image: "/src/assets/Amina Rauff.jpg",
+    image: "/src/assets/projects/Amina Rauff.jpg",
     quote: "Super impressed with how Jillani captured my brand vibe. The site feels warm and polished — exactly what I needed.",
     rating: 5,
     project: "Women-Centered Coaching Business"
@@ -31,7 +31,7 @@ const testimonials = [
   {
     name: "Daniel Carter",
     role: "Life Coach & Author",
-    image: "/src/assets/Daniel Carter.jpg",
+    image: "/src/assets/projects/Daniel Carter.jpg",
     quote: "Clean, professional, and straight to the point. Clients are booking faster now — the site does half the work for me.",
     rating: 5,
     project: "LifePath Coaching Platform"
